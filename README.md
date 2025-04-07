@@ -4,7 +4,7 @@
 
 ## About
 
-**Habit Tracker** is a simple and cute monthly habit tracking app built with HTML, CSS, and JavaScript.
+A simple and cute monthly habit tracking app built with HTML, CSS, and JavaScript.
 
 It allows you to:
 - Set your custom habit for the current month;
