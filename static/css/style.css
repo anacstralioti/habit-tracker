@@ -1,5 +1,5 @@
 body {
-    background-image: url("/static/assets/clouds.jpg");
+    background-image: url("clouds.jpg");
     background-size: 500px;
     background-color: rgb(255, 227, 227);
     background-blend-mode: lighten;
@@ -58,4 +58,23 @@ body {
     font-size: 15px;
     text-align: center;
     border-radius: 20px;
+}
+
+#resetButton {
+    margin: 30px auto;
+    display: block;
+    padding: 10px 20px;
+    background-color: pink;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-family: "Justy1", sans-serif;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#resetButton:hover {
+    background-color: rgb(255, 192, 203);
+    transform: scale(1.05);
 }

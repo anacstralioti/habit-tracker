@@ -64,7 +64,7 @@ for(let i=0;i<days.length;i++){
     
     let day = days[rowCount].getElementsByClassName("day");
     
-    for (let j=0;j<day.length;j++){
+    for(let j=0;j<day.length;j++){
         
         if(dayCount == currentDate - 1){
             day[j].setAttribute("style", "color: rgb(234, 1, 144);")
@@ -87,7 +87,7 @@ for(let i=0;i<days.length;i++){
 /* INITIALIZE COMPLETED ARRAY */
 let completed = new Array(31);
 
-for (let i=0;i< dayCount;i++){
+for(let i=0;i< dayCount;i++){
     let tempString = "" + (currentMonth + 1) + "-" + (i+1) + "-" + currentYear;
     console.log("storing date: " + tempString);
     
@@ -106,7 +106,7 @@ console.log("completed array: " + completed);
 console.log("total days completed: " + daysCompleted);
 
 /* CHECK STORAGE AND UPDATE COMPLETED ARRAY */
-for (let i=0;i<currentDate;i++){
+for(let i=0;i<currentDate;i++){
     let tempString = "" + (currentMonth + 1) + "-" + (i+1) + "-" + currentYear;
     console.log("storing date: " + tempString);
 
@@ -124,3 +124,39 @@ for (let i=0;i<currentDate;i++){
 
 /* UPDATE COMPLETED ON CALENDAR */
 let daysDivs = document.querySelectorAll(".day");
+for(let i=0; i<currentDate;i++){
+    daysDivs[i].onclick = function(e){
+        let num = e.target.innerText;
+        let selectedDate = document.getElementById(e.target.id);
+        let storageString = "" + (currentMonth + 1) + "-" + num + "-" + currentYear;
+        if(localStorage.getItem(storageString) == "false"){
+            selectedDate.style.backgroundColor = "pink";
+            localStorage.setItem(storageString, true);
+            daysCompleted++;
+        }else if(localStorage.getItem(storageString) == "true"){
+            selectedDate.style.backgroundColor = "white";
+            localStorage.setItem(storageString, false);
+            daysCompleted--;
+        }
+
+        totalDays.innerHTML = daysCompleted + "/" + dayCount;
+        console.log(daysCompleted, currentDate);
+        if(daysCompleted === currentDate){
+            alert("great progress")
+        }
+    }
+}
+
+/* RESET BUTTON */
+let resetButton = document.getElementById("resetButton");
+resetButton.onclick = function(){
+    for(let i=0;i<dayCount;i++){
+        let tempStrings = "" + (currentMonth + 1) + "-" + (i+1) + "-" + currentYear;
+        console.log(tempStrings);
+        localStorage.setItem(tempStrings, "false");
+        let curDay = document.getElementById("day" + (i+1));
+        curDay.style.backgroundColor = "white";
+    }
+    daysCompleted = 0;
+    totalDays.innerHTML = daysCompleted + "/" + daysInThisMonth;
+}
