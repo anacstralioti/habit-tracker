@@ -1,4 +1,4 @@
-# 🌸 Habit Tracker
+# 🪻 Habit Tracker
 
 ![Habit Tracker Screenshot](static/assets/screenshot.png)
 
